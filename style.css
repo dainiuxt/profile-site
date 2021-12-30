@@ -1,5 +1,5 @@
 :root {
-  background-color: #ccc;
+  background-color: #eee;
   color: #02B4E0;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -9,6 +9,7 @@ body {
   margin: 2rem;
   background-color: #eee;
   min-height: calc(100vh - 4rem);
+  filter: drop-shadow(0.15rem 0.15rem 0.2rem rgba(0, 0, 0, 0.2));
 }
 
 header {
@@ -26,6 +27,9 @@ header {
   height: auto;
   width: 200px;
   aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: #ccc solid 1px;
+  filter: drop-shadow(0.15rem 0.15rem 0.2rem rgba(0, 0, 0, 0.2));
 }
 
 main {
@@ -34,10 +38,11 @@ main {
   padding: 2rem;
   overflow-y: visible;
   border-radius: 2rem;
-  background-color: #eee;
+  background-color: #fefefe;
   min-height: 50vh;
   position: relative;
   z-index: 1;
+  color: #222;
 }
 
 footer {
@@ -49,17 +54,45 @@ footer {
   border-bottom-right-radius: 2rem;
 }
 
+.xp, .xp-entry {
+  display: grid;
+}
+
+.xp-entry {
+  grid-template-columns: 1fr 2fr;
+}
+
+.dates, .job-title {
+  font-weight: 800;
+}
+
+.xp-company {
+  color: #666;
+}
+
+.xp-dates {
+  float: left;
+  text-align: right;
+  padding-right: 2rem;
+}
+
+.xp-job {
+  float: right;
+}
 @media screen and (min-width: 960px) {
   footer {
     position: absolute;
     left: 0;
     bottom: 0;
-    margin: 0 0 2rem 2rem;
-    width: calc(30% - 4rem);
+    margin: 0;
+    width: calc(30% - 2rem);
   }
   body {
     display: flex;
     height: fit-content;
+    max-width: calc(1920px - 4rem);
+    /* margin-left: auto;
+    margin-right: auto; */
   }
   header {
     width: 30%;
@@ -74,5 +107,12 @@ footer {
     margin: 0 0 0 -2rem;
     width: 70%;
     border-radius: 2rem;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  body {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
