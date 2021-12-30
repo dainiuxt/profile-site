@@ -54,31 +54,71 @@ footer {
   border-bottom-right-radius: 2rem;
 }
 
-.xp, .xp-entry {
+.xp, .xp-entry, .skill-entry {
   display: grid;
+}
+
+.skill-level {
+  text-align: right;
 }
 
 .xp-entry {
   grid-template-columns: 1fr 2fr;
+  gap: 2rem;
 }
 
-.dates, .job-title {
+.skill-entry {
+  grid-template-columns: 1fr 2fr;
+}
+
+.dates, .job-title, .skill-name {
   font-weight: 800;
 }
 
-.xp-company {
+.xp-company, .skill-level {
   color: #666;
 }
 
 .xp-dates {
   float: left;
   text-align: right;
-  padding-right: 2rem;
 }
 
 .xp-job {
   float: right;
 }
+
+.skill-progress {
+  grid-column: span 3;
+  margin-bottom: 1rem;
+  border-radius: 7px; 
+  padding: 2px;
+  height: 0.5ch;
+  border: #02B4E0 2px solid;
+  background-color: #fefefe;
+  width: 100%; /* needed for Chrome */
+}
+
+.skill-progress::-moz-progress-bar {
+  background-color: #02B4E0;
+}
+
+progress::-webkit-progress-value {
+  padding: 2px;
+  height: 0.5ch;
+  background-color: #02B4E0;
+  border-radius: 7px;
+}
+
+.skill-progress::-webkit-progress-bar {
+  background: #fefefe;
+  min-height: 1ch;
+}
+
+.skills-title {
+  color: #02B4E0;
+}
+
 @media screen and (min-width: 960px) {
   footer {
     position: absolute;
@@ -91,8 +131,6 @@ footer {
     display: flex;
     height: fit-content;
     max-width: calc(1920px - 4rem);
-    /* margin-left: auto;
-    margin-right: auto; */
   }
   header {
     width: 30%;

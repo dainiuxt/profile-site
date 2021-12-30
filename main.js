@@ -10,6 +10,12 @@ async function getExperience() {
   useXp(xpdata);
 }
 
+async function getSkills() {
+  const response = await fetch(skillsUrl);
+  const skillsdata = await response.json();
+  useSkills(skillsdata);
+}
+
 function useXp(xp) {
   console.log(xp);
   const placeXp = document.querySelector('.xp');
@@ -44,4 +50,27 @@ function useXp(xp) {
   });
 }
 
+function useSkills(skills) {
+  const placeSkills = document.querySelector('.skills');
+  skills.forEach(entry => {
+    const skillEntry = document.createElement('div');
+    skillEntry.classList.add('skill-entry');
+    placeSkills.appendChild(skillEntry);
+    const skillName = document.createElement('div');
+    skillName.classList.add('skill-name');
+    skillName.textContent = entry.title;
+    skillEntry.appendChild(skillName);
+    const skillLevel = document.createElement('div');
+    skillLevel.classList.add('skill-level');
+    skillLevel.textContent = entry.level + '%';
+    skillEntry.appendChild(skillLevel);
+    const skillProgress = document.createElement('progress');
+    skillProgress.classList.add('skill-progress');
+    skillProgress.setAttribute('value', entry.level);
+    skillProgress.setAttribute('max', '100');
+    skillEntry.appendChild(skillProgress);
+  });
+}
+
 getExperience();
+getSkills();
