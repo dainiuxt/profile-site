@@ -43,6 +43,8 @@ main {
   position: relative;
   z-index: 1;
   color: #222;
+  display: grid;
+  grid-template-rows: 2;
 }
 
 footer {
@@ -96,27 +98,21 @@ footer {
   height: 0.5ch;
   border: #02B4E0 2px solid;
   background-color: #fefefe;
-  width: 100%; /* needed for Chrome */
 }
 
-.skill-progress::-moz-progress-bar {
-  background-color: #02B4E0;
-}
-
-progress::-webkit-progress-value {
-  padding: 2px;
-  height: 0.5ch;
-  background-color: #02B4E0;
+.progress-value {
+  display: block;
   border-radius: 7px;
-}
-
-.skill-progress::-webkit-progress-bar {
-  background: #fefefe;
-  min-height: 1ch;
+  background-color: #02B4E0;
+  height: 0.5ch;
 }
 
 .skills-title {
   color: #02B4E0;
+}
+
+.skills {
+  align-self: end;
 }
 
 @media screen and (min-width: 960px) {
